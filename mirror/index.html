@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+ *  Copyright (c) 2015 The WebRTC project authors. All Rights Reserved.
+ *
+ *  Use of this source code is governed by a BSD-style license
+ *  that can be found in the LICENSE file in the root of the source
+ *  tree.
+-->
+<html>
+<head>
+  <script type="text/javascript" src="./lib/ccv.js"></script>
+  <script type="text/javascript" src="./lib/face.js"></script>
+  <!-- Load the polyfill to switch-hit between Chrome and Firefox -->
+  <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+  <script src="./common.js"></script>
+  <style type="text/css">
+    display: block;display: block;* { margin:0; padding:0; } /* to remove the top and left whitespace */
+    html, body { width:100%; height:100%; } /* just to be sure these are full screen*/
+    body {font-family: 'Helvetica';background-color: #000000; }
+    a:link { color: #ffffff; } a:visited {color: #ffffff; }
+    #localCanvas {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    #localVideo {
+      display: block;
+      position: absolute;
+      top: 5%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-transition-property: opacity;
+      -webkit-transition-duration: 2s;
+      opacity: 0;
+    }
+    #logo {
+      display: block;
+      top:4;
+      right:4;
+      position:absolute;
+      float:right;
+      #opacity: 0.8;
+    }
+    #credit {
+      display: block;
+      top:28;
+      right:4;
+      position:absolute;
+      float:right;
+      font-size:10px;
+    }
+  </style>
+  <title>WebRTC Face Reco Demo Application</title>
+</head>
+<body>
+<div id="text">
+  <label id=namelabel style="color:white; font-weight:bold;">Name: </label>
+  <br>
+  <label id=audiolabel style="color:white; font-weight:bold;">Said: </label>
+</div>
+<audio id="localAudio" autoplay muted></audio>
+<script src="./facer.js"></script>
+<script src="./audio.js"></script>
+<video id="localVideo" autoplay muted></video>
+<canvas width="100" height="100" id="localCanvas"></canvas>
+</body>
+</html>

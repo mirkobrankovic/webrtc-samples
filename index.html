@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="description" content="WebRTC code samples">
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+  <meta itemprop="description" content="Client-side WebRTC code samples">
+  <meta itemprop="image" content="../../../images/webrtc-icon-192x192.png">
+  <meta itemprop="name" content="WebRTC code samples">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta id="theme-color" name="theme-color" content="#ffffff">
+
+  <base target="_blank">
+
+  <title>Peer connection: adjust bandwidth</title>
+
+  <link rel="icon" sizes="192x192" href="../../../images/webrtc-icon-192x192.png">
+  <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../../css/main.css" />
+  <link rel="stylesheet" href="css/main.css" />
+
+  <style>
+    body, html {
+      height: 100%;
+    }
+    button {
+      margin: 0 10px 20px 0;
+      width: 90px;
+    }
+    div#buttons {
+      margin: 0 0 1em 0;
+    }
+    div#container {
+      max-width: 100%;
+    }
+    p#dimensions {
+      height: 1em;
+      margin: 0 0 1.5em 0;
+    }
+    video {
+      background: none;
+      height: auto;
+      width: auto;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div id="container">
+
+    <h1><span>Peer connection: adjust bandwidth, resolution, frame rate</span></h1>
+
+    <video id="localVideo" autoplay muted></video>
+    <video id="remoteVideo" autoplay></video>
+
+    <div id="buttons">
+      <label>Resolution:</label>
+      <select id="resolution" enabled>
+        <option value="qvga">QVGA (320x240)</option>
+        <option value="vga">VGA (640x480)</option>
+        <option value="hd" selected>HD (1280x720)</option>
+        <option value="fhd">FUllHD (1920x1080)</option>
+      </select>
+      <label>Frame Rate:</label>
+      <input type="text" id="frameRate" name="frameRate">
+      <label>Bandwidth:</label>
+      <select id="bandwidth" disabled>
+        <option value="unlimited">unlimited</option>
+        <option value="2000">2000</option>
+        <option value="1000">1000</option>
+        <option value="500" selected>500</option>
+        <option value="250">250</option>
+        <option value="125">125</option>
+        <option value="75">75</option>
+      </select>
+      kbps
+      <br>
+      <button id="callButton">Call</button>
+      <button id="hangupButton">Hang Up</button>
+    </div>
+    <div class="graph-container" id="bitrateGraph">
+      <div>Bitrate</div>
+      <canvas id="bitrateCanvas"></canvas>
+    </div>
+    <div class="graph-container" id="packetGraph">
+      <div>Packets sent per second</div>
+      <canvas id="packetCanvas"></canvas>
+    </div>
+    <div class="graph-container" id="frameGraph">
+      <div>Frame rate per second</div>
+      <canvas id="frameCanvas"></canvas>
+    </div>
+
+  </div>
+
+  <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/third_party/graph.js"></script>
+
+  <script src="js/lib/ga.js"></script>
+</body>
+</html>
