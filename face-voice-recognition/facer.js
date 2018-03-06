@@ -51,8 +51,12 @@ function handleSuccess(stream) {
   localAudio.srcObject = stream;
 }
 
+function handleFailure() {
+  console.log('AUDIO getUserMedia() failed');
+}
+
 navigator.mediaDevices.getUserMedia(constraints).
-    then(handleSuccess).catch(onFailedStream);
+    then(handleSuccess).catch(handleFailure);
 
 poll = function() {
   var w = localVideo.videoWidth;
