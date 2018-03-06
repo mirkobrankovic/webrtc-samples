@@ -36,7 +36,7 @@ app.post('/image', function(req, res){
       console.error(`exec error: ${error}`);
       return;
     }
-    console.log(`stdout: ${stdout}`);
+    console.log(`face_recognition stdout: ${stdout}`);
     //console.log(`stderr: ${stderr}`);
 
     res.writeHead(200, {'Content-Type': 'text/html'});
@@ -56,7 +56,7 @@ app.post('/audio', function(req, res){
   const exec = require('child_process').exec;
   const exec1 = require('child_process').exec;
 
-  exec('ffmpeg -i tmp/new.webm -y -acodec pcm_s16le -ac 1 -ar 16000 -af lowpass=3000,highpass=200 tmp/new.wav', (error, stdout, stderr) => {
+  exec('ffmpeg -i tmp/new.webm -y -acodec pcm_s16le -ac 1 -ar 16000 -af lowpass=3000,highpass=200 -vn tmp/new.wav', (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
       return;
@@ -70,7 +70,7 @@ app.post('/audio', function(req, res){
       console.error(`exec error: ${error}`);
       return;
     }
-    console.log(`stdout: ${stdout}`);
+    console.log(`Deepspeach stdout: ${stdout}`);
     //console.log(`stderr: ${stderr}`);
 
     res.writeHead(200, {'Content-Type': 'text/html'});
